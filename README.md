@@ -20,7 +20,7 @@ Using `npx`:
 npx ipx@next-2 serve --dir ./
 ```
 
-Usin `bun`
+Using `bun`:
 
 ```bash
 bun x npx ipx@next-2 serve --dir ./
@@ -48,10 +48,11 @@ const ipx = createIPX({
 const ipxMiddleware = createIPXMiddleware(ipx);
 ```
 
-**Example**: Using with [unjs/h3](https://github.com/unjs/h3):
+**Example:** Using with [unjs/h3](https://github.com/unjs/h3):
 
 ```js
 import { createIPX, createIPXMiddleware } from "ipx";
+import { createApp, fromNodeMiddleware, toNodeListener } from "h3";
 import { listen } from "listhen";
 
 const app = createApp().use("/", fromNodeMiddleware(ipxMiddleware));
